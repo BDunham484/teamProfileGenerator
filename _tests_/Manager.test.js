@@ -15,21 +15,21 @@ test('creates an manager object', () => {
 test("gets manager's name", () => {
     const manager = new Manager('Rick');
 
-    expect(manager.name).toBe('Rick');
+    expect(manager.getName()).toEqual(expect.any(String));
 });
 
 
 test("gets manager's id", () => {
     const manager = new Manager('Rick');
 
-    expect(manager.id).toEqual(expect.any(Number));
+    expect(manager.getId()).toEqual(expect.stringContaining(manager.id.toString()));
 });
 
 
 test("gets manager's email", () => {
     const manager = new Manager('Rick');
 
-    expect(manager.email).toEqual(expect.stringContaining('@'));
+    expect(manager.getEmail()).toEqual(expect.stringContaining('@'));
 });
 
 test("gets manager's office number", () => {
@@ -42,5 +42,5 @@ test("gets manager's office number", () => {
 test("gets manager's role", () => {
     const manager = new Manager('Rick');
 
-    expect(manager.role).toEqual(expect.any(String));
+    expect(manager.getRole()).toEqual(expect.any(String));
 });

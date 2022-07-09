@@ -1,7 +1,7 @@
 //imports needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generatePage = require('./utils/generatePage.js');
+const generatePage = require('./src/generatePage.js');
 
 
 
@@ -35,6 +35,7 @@ const writeToFile = (data) => {
 //a function to initialize the app
 const init = () => {
     return inquirer.prompt(questions);
+    
 }
 
 
@@ -44,6 +45,7 @@ const init = () => {
 //function call to initialize app
 init()
     .then(answers => {
+        console.log(answers)
         const pageHTML = generatePage(answers);
         writeToFile(pageHTML);
     })

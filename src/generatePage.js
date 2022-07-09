@@ -1,7 +1,6 @@
 //fucntion to generate HTML for the page
 const generatePage = (data) => {
-    return
-    `
+    return `
     <!DOCTYPE html>
     <html lang="en">
         <head>
@@ -11,12 +10,13 @@ const generatePage = (data) => {
             <title>Team Progile Generator</title>
         </head>
         <body>
-            ${data}
+            ${data.test}
         </body>
     </html>
     `
 }
 
 
+console.log(generatePage('This is the webpage'));
 
-module.exports
+module.exports = generatePage

@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generatePage = require('./src/generatePage.js');
-const Employee = require('./lib/Employee.js');
+// const Employee = require('./lib/Employee.js');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
@@ -74,19 +74,19 @@ const questions = () => {
         }
     ]).then(managerData => {
         let manager = new Manager(managerData);
-
+        console.log(manager)
         teamData.push(manager);
 
         if (managerData.role === "Engineer") {
             console.log("ENGINEER QUESTIONS")
             engineerQuestions();
-            return managerData;
+            return manager;
         } else if (managerData.role === "Intern") {
             console.log("INTERN QUESTIONS")
-            return managerData;
+            return manager;
         } else {
             console.log("SHIT'S DONE")
-            return managerData;  
+            return manager;  
         }
     })
 };
@@ -161,19 +161,18 @@ const engineerQuestions = () => {
         let engineer = new Engineer(engineerData);
 
         teamData.push(engineer);
-        console.log(teamData);
 
         if (engineerData.role === "Engineer") {
             console.log("ENGINEER QUESTIONS")
             engineerQuestions();
-            return teamData;
+            return engineer;
         } else if (engineerData.role === "Intern") {
             console.log("INTERN QUESTIONS")
             internQuestions();
-            return teamData;
+            return engineer;
         } else {
             console.log("SHIT'S DONE")
-            return teamData;  
+            return engineer;  
         }
     })
 };
@@ -250,19 +249,18 @@ const internQuestions = () => {
         let intern = new Intern(internData);
 
         teamData.push(intern);
-        console.log(teamData);
 
         if (internData.role === "Engineer") {
             console.log("ENGINEER QUESTIONS")
             engineerQuestions();
-            return teamData;
+            return intern;
         } else if (internData.role === "Intern") {
             console.log("INTERN QUESTIONS")
             internQuestions();
-            return teamData;
+            return intern;
         } else {
             console.log("SHIT'S DONE")
-            return teamData;  
+            return intern;  
         }
     })
 }
@@ -277,7 +275,6 @@ const internQuestions = () => {
 const writeToFile = (data) => {
     fs.writeFile('./dist/index.html', data, err => {
         if (err) throw err;
-        // console.log('/////////////////////////Page Complete!!! Check the `dist` directory for the results!!////////////////////////////////');
     });
 };
 
@@ -321,10 +318,9 @@ const writeToFile = (data) => {
 //     });
 
 questions()
-    .then(managerData => {
-        // console.log(managerData);
-
-        const pageHTML = generatePage(managerData);
+    .then(manager => {
+        
+        const pageHTML = generatePage(manager);
         writeToFile(pageHTML);
         })
         .catch(err => {

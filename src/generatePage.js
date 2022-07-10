@@ -21,6 +21,6 @@ const generatePage = (data) => {
 }
 
 
-console.log(generatePage('This is the webpage'));
+// console.log(generatePage('This is the webpage'));
 
 module.exports = generatePage

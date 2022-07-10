@@ -2,13 +2,19 @@
 const Intern = require('../lib/Intern');
 
 test('creates an intern object', () => {
-    const intern = new Intern('Rick');
+    data = {
+        name: 'Rick',
+        id: 1234,
+        email: 'test@email.com',
+        school: 'U.T.'
+    }
+    const intern = new Intern(data);
     
 
     expect(intern.name).toBe('Rick');
-    expect(intern.id).toEqual(expect.any(Number));
-    expect(intern.email).toEqual(expect.stringContaining('@'));
-    expect(intern.school).toEqual(expect.any(String));
+    expect(intern.id).toBe(1234);
+    expect(intern.email).toBe('test@email.com');
+    expect(intern.school).toBe('U.T.');
 });
 
 test("gets intern's name", () => {
@@ -20,6 +26,7 @@ test("gets intern's name", () => {
 
 test("gets intern's id", () => {
     const intern = new Intern('Rick');
+    intern.id = 1234;
 
     expect(intern.getId()).toEqual(expect.stringContaining(intern.id.toString()));
 });
@@ -27,6 +34,7 @@ test("gets intern's id", () => {
 
 test("gets intern's email", () => {
     const intern = new Intern('Rick');
+    intern.email = 'test@email.com'
 
     expect(intern.getEmail()).toEqual(expect.stringContaining('@'));
 });
@@ -41,6 +49,7 @@ test("gets intern's school", () => {
 
 test("gets intern's role", () => {
     const intern = new Intern('Rick');
+    intern.role = 'intern';
 
     expect(intern.getRole()).toEqual(expect.any(String));
 });

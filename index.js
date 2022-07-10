@@ -2,6 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generatePage = require('./src/generatePage.js');
+const Employee = require('./lib/Employee.js');
 
 
 
@@ -11,8 +12,24 @@ const generatePage = require('./src/generatePage.js');
 const questions = [
     {
         type: 'input',
-        name: 'test',
-        message: 'Is this thing on?'
+        name: 'name',
+        message: 'What is your name?'
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "Please enter employee's ID."
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "What is employee's email address?"
+    },
+    {
+        type: 'list',
+        name: 'role',
+        message: "Role?",
+        choices: ['Employee', 'Manager', 'Engineer', 'Intern']
     }
 ]
 
@@ -45,7 +62,9 @@ const init = () => {
 //function call to initialize app
 init()
     .then(answers => {
-        console.log(answers)
+        // console.log(answers)
+        this.employee = new Employee(answers)
+        console.log(this.employee)
         const pageHTML = generatePage(answers);
         writeToFile(pageHTML);
     })

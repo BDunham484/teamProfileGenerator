@@ -7,10 +7,13 @@ const generatePage = (data) => {
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Team Progile Generator</title>
+            <title>Team Profile Generator</title>
         </head>
         <body>
-            ${data.test}
+            employee name: ${data.name}
+            employee id: ${data.id}
+            employee email: ${data.email}
+            role: ${data.role}
         </body>
     </html>
     `

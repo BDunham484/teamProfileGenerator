@@ -1,4 +1,4 @@
-
+const Employee = require('../lib/Employee');
 const Manager = require('../lib/Manager');
 
 test('creates an manager object', () => {
@@ -8,6 +8,7 @@ test('creates an manager object', () => {
         email: 'test@email.com',
         officeNumber: 4321
     }
+
     const manager = new Manager(data);
     
 

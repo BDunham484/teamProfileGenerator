@@ -13,6 +13,7 @@ const generatePage = (data) => {
             employee name: ${data.name}
             employee id: ${data.id}
             employee email: ${data.email}
+            office number: ${data.officeNumber}
             role: ${data.role}
         </body>
     </html>

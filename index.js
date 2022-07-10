@@ -3,6 +3,9 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generatePage = require('./src/generatePage.js');
 const Employee = require('./lib/Employee.js');
+const Manager = require('./lib/Manager.js');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
 
 
 
@@ -13,23 +16,28 @@ const questions = [
     {
         type: 'input',
         name: 'name',
-        message: 'What is your name?'
+        message: "What is the team manager's name?"
     },
     {
         type: 'input',
         name: 'id',
-        message: "Please enter employee's ID."
+        message: "What is the team manager's ID?"
     },
     {
         type: 'input',
         name: 'email',
-        message: "What is employee's email address?"
+        message: "What is team manager's email address?"
+    },
+    {
+        type: 'input',
+        name: 'officeNumber',
+        message: "What is the team manager's office number?"
     },
     {
         type: 'list',
         name: 'role',
-        message: "Role?",
-        choices: ['Employee', 'Manager', 'Engineer', 'Intern']
+        message: "Which type of teammember would you like to add?",
+        choices: ['Manager', 'Engineer', 'Intern', "I don't want to add any more team members"]
     }
 ]
 
@@ -62,9 +70,9 @@ const init = () => {
 //function call to initialize app
 init()
     .then(answers => {
-        // console.log(answers)
-        this.employee = new Employee(answers)
-        console.log(this.employee)
+        console.log(answers)
+        this.manager = new Manager(answers)
+        console.log(this.manager)
         const pageHTML = generatePage(answers);
         writeToFile(pageHTML);
     })

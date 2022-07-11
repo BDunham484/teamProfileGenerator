@@ -7,12 +7,14 @@ const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 
+// const cardList = document.querySelector('#card-list');
 
-const teamData = [];
+const teamDataArr = [];
 
 
 //an array of question for user input
 const questions = () => {
+
     return inquirer.prompt([
         {
             type: 'input',
@@ -74,19 +76,26 @@ const questions = () => {
         }
     ]).then(managerData => {
         let manager = new Manager(managerData);
-        console.log(manager)
-        teamData.push(manager);
+
+        teamDataArr.push(manager);
+        console.log('////////////////////ARRAY UPDATE///////////////')
+        console.log(teamDataArr)
+
+
 
         if (managerData.role === "Engineer") {
             console.log("ENGINEER QUESTIONS")
             engineerQuestions();
-            return manager;
+            // return manager;
         } else if (managerData.role === "Intern") {
             console.log("INTERN QUESTIONS")
-            return manager;
+            internQuestions();
+            // return manager;
         } else {
             console.log("SHIT'S DONE")
-            return manager;  
+            // return manager;  
+            const pageHTML = generatePage(teamDataArr);
+            writeToFile(pageHTML);
         }
     })
 };
@@ -97,6 +106,8 @@ const questions = () => {
 
 
 const engineerQuestions = () => {
+
+
     return inquirer.prompt([
         {
             type: 'input',
@@ -135,7 +146,7 @@ const engineerQuestions = () => {
                     console.log('Please enter the email address!');
                     return false;
                 }
-            }, 
+            },
         },
         {
             type: 'input',
@@ -156,23 +167,28 @@ const engineerQuestions = () => {
             message: "Which type of teammember would you like to add?",
             choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
         }
-        
+
     ]).then(engineerData => {
         let engineer = new Engineer(engineerData);
 
-        teamData.push(engineer);
+        teamDataArr.push(engineer);
+        console.log('////////////////ARRAY UPDATE///////////////')
+        console.log(teamDataArr);
 
         if (engineerData.role === "Engineer") {
             console.log("ENGINEER QUESTIONS")
             engineerQuestions();
-            return engineer;
+            // return engineer;
         } else if (engineerData.role === "Intern") {
             console.log("INTERN QUESTIONS")
             internQuestions();
-            return engineer;
+            // return engineer;
         } else {
             console.log("SHIT'S DONE")
-            return engineer;  
+            const pageHTML = generatePage(teamDataArr);
+            writeToFile(pageHTML);
+            
+
         }
     })
 };
@@ -186,6 +202,7 @@ const engineerQuestions = () => {
 
 
 const internQuestions = () => {
+
     return inquirer.prompt([
         {
             type: 'input',
@@ -224,7 +241,7 @@ const internQuestions = () => {
                     console.log('Please enter the email address!');
                     return false;
                 }
-            }, 
+            },
         },
         {
             type: 'input',
@@ -248,24 +265,27 @@ const internQuestions = () => {
     ]).then(internData => {
         let intern = new Intern(internData);
 
-        teamData.push(intern);
+        teamDataArr.push(intern);
+        console.log('////////////////ARRAY UPDATE///////////////')
+        console.log(teamDataArr);
 
         if (internData.role === "Engineer") {
             console.log("ENGINEER QUESTIONS")
             engineerQuestions();
-            return intern;
+            // return intern;
         } else if (internData.role === "Intern") {
             console.log("INTERN QUESTIONS")
             internQuestions();
-            return intern;
+            // return intern;
         } else {
             console.log("SHIT'S DONE")
-            return intern;  
+            // return intern;
+            const pageHTML = generatePage(teamDataArr);
+            writeToFile(pageHTML);
+
         }
     })
 }
-
-
 
 
 
@@ -281,48 +301,12 @@ const writeToFile = (data) => {
 
 
 
-
-//a function to initialize the app
-// const init = () => {
-//     return inquirer.prompt(questions)
-
-    
-    
-// }
-
-
-
-
-
-//function call to initialize app
-// init()
-//     // .then(managerData => {
-//     // teamData.push(managerData);
-//     // console.log(teamData);
-//     // })
-//     .then(answers => {
-//         teamData.push(answers);
-//         console.log(teamData);
-
-//         this.manager = new Manager(answers)
-//         console.log(this.manager)
-//         if (answers.role === 'Engineer') {
-
-//         }
-
-//         const pageHTML = generatePage(this.manager);
-//         writeToFile(pageHTML);
-//     })
-//     .catch(err => {
-//         console.log(err);
-//     });
-
 questions()
-    .then(manager => {
-        
-        const pageHTML = generatePage(manager);
-        writeToFile(pageHTML);
-        })
-        .catch(err => {
-        console.log(err);
-        });
+    // .then(manager => {
+    //     //create initial html page
+    //     const pageHTML = generatePage(manager);
+    //     writeToFile(pageHTML);
+    //     })
+    //     .catch(err => {
+    //     console.log(err);
+    //     });

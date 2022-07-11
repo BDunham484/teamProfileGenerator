@@ -27,13 +27,13 @@
 *  Run `npm init` from the command line
 *  Run `npm install inquirer` from the command line
 
-![teamProfileGenerator](./assets/images/team-install)
+![teamProfileGenerator](./assets/images/team-install.png)
 
 Back to [top of page](# )
 
 ## Usage
 
-* Run `node index` from the command line to initiate a series of questions about your team. Your ersponses are then used to populate a series of Bootstrap cards that are dsplayed on a dynamically generated `HTML` page. Upon completion, the file will be saved in the `dist` folder along with a copy of the `CSS` style sheet.
+* Run `node index` from the command line to initiate a series of questions about your team. Your respponses are then used to populate a series of Bootstrap cards that are dsplayed on a dynamically generated `HTML` page. Upon completion, the file will be saved in the `dist` folder along with a copy of the `CSS` style sheet.
 
 
 

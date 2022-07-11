@@ -25,7 +25,7 @@
 * Clone the repository
 *  Open in your desired text editor
 *  Run `npm init` from the command line
-*  Run `npm install inquirer` from the command line
+*  Run `npm install inquirer@8.2.4` from the command line
 
 ![teamProfileGenerator](./assets/images/team-install.png)
 
@@ -61,6 +61,16 @@ Back to [top of page](# )
 Feel free to submit an issue!
 
 Back to [top of page](# )
+
+## Made With
+
+* `HTML`
+* `CSS`
+* `JavaScript`
+* `Node.js`
+* `NPM`
+* `Inquirer v8.2.4`
+* `Jest`
 
 ## Test
 

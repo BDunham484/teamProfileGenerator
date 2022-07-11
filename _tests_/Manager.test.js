@@ -1,6 +1,7 @@
-const Employee = require('../lib/Employee');
+//import required for this file
 const Manager = require('../lib/Manager');
 
+//creates tests using jest to test the manager constructor properties and methods
 test('creates an manager object', () => {
     data = {
         name: 'Rick',

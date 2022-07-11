@@ -1,6 +1,7 @@
-
+//import required for the file
 const Engineer = require('../lib/Engineer');
 
+//creates tests using jest to test the engineer constructor properties and methods
 test('creates an engineer object', () => {
     data = {
         name: 'Rick',

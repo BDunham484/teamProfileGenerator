@@ -1,7 +1,7 @@
-
+//imports required for this file
 const Employee = require('../lib/Employee');
 
-
+//creates tests using jest to test the employee constructor properties and methods
 test('creates an employee object', () => {
     data = {
         name: 'Rick',

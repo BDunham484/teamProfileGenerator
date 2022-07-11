@@ -4,12 +4,9 @@ const Intern = require("../lib/Intern");
 
 //function to generate cards
 const generateCards = teamDataArr => {
-    console.log('-----------PASSED DATA----------')
-    console.log(teamDataArr)
     if (teamDataArr.length === 0) {
         return '';
     }
-
     return `
     ${teamDataArr
         .filter(element => element instanceof Manager)
@@ -32,8 +29,6 @@ const generateCards = teamDataArr => {
         `;
         })
         .join('')}
-
-
     ${teamDataArr
         .filter(element => element instanceof Engineer)
         .map(({role, name, id, email, github}) => {
@@ -54,26 +49,25 @@ const generateCards = teamDataArr => {
         `;
         })
         .join('')}
-    
     ${teamDataArr
         .filter(element => element instanceof Intern)
-    .map(({role, name, id, email, school}) => {
-    return `
-                <li>
-                    <div class="card m-4" style="width: 18rem;">
-                        <div class="card-header bg-gradient">
-                        <p class="fs-4 fw-bold">${name}</p</br>
-                        <p class="fs-5 fw-bolder"><i class="fa-solid fa-graduation-cap"></i>  ${role}</p>
+        .map(({role, name, id, email, school}) => {
+        return `
+                    <li>
+                        <div class="card m-4" style="width: 18rem;">
+                            <div class="card-header bg-gradient">
+                            <p class="fs-4 fw-bold">${name}</p</br>
+                            <p class="fs-5 fw-bolder"><i class="fa-solid fa-graduation-cap"></i>  ${role}</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item fw-semibold">ID: ${id}</li>
+                                <li class="list-group-item fw-semibold">Email: <a href="mailto: ${email}">${email}</a></li>
+                                <li class="list-group-item fw-semibold">School: ${school}</li>
+                            </ul>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item fw-semibold">ID: ${id}</li>
-                            <li class="list-group-item fw-semibold">Email: <a href="mailto: ${email}">${email}</a></li>
-                            <li class="list-group-item fw-semibold">School: ${school}</li>
-                        </ul>
-                    </div>
-                </li>
-    `;
-    })
+                    </li>
+        `;
+        })
     .join('')}
     `;
 };
@@ -84,8 +78,6 @@ const generateCards = teamDataArr => {
 
 //fucntion to generate HTML for the page
 const generatePage = (data) => {
-    console.log('--------------DATA-------------')
-    console.log(data);
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -98,7 +90,6 @@ const generatePage = (data) => {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="./style.css">
-    </head>
     </head>
 
     <body>
@@ -122,13 +113,12 @@ const generatePage = (data) => {
             integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
             crossorigin="anonymous"></script>
     </body>
-    </body>
 
     </html>
     `
 }
 
 
-// console.log(generatePage('This is the webpage'));
+
 
 module.exports = generatePage

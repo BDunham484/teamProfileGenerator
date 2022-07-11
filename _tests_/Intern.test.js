@@ -1,6 +1,7 @@
-
+//import required for this file
 const Intern = require('../lib/Intern');
 
+//creates tests using jest to test the intern constructor properties and methods
 test('creates an intern object', () => {
     data = {
         name: 'Rick',

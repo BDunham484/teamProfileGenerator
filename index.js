@@ -2,19 +2,16 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generatePage = require('./src/generatePage.js');
-// const Employee = require('./lib/Employee.js');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 
-// const cardList = document.querySelector('#card-list');
-
+//create array to store team data
 const teamDataArr = [];
 
 
-//an array of question for user input
+//initial array of question for user input via the inquirer package
 const questions = () => {
-
     return inquirer.prompt([
         {
             type: 'input',
@@ -75,27 +72,26 @@ const questions = () => {
             choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
         }
     ]).then(managerData => {
+        //save new instance of manager data to variable
         let manager = new Manager(managerData);
-
+        //push data to array
         teamDataArr.push(manager);
-        console.log('////////////////////ARRAY UPDATE///////////////')
-        console.log(teamDataArr)
-
-
-
+        //conditional to determine if adding engineer, intern or done
         if (managerData.role === "Engineer") {
             console.log("ENGINEER QUESTIONS")
+            //if 'engineer' is selected, call engineer function with engineer questions
             engineerQuestions();
-            // return manager;
         } else if (managerData.role === "Intern") {
             console.log("INTERN QUESTIONS")
+            //if 'intern' is selected, call intern function with intern questions
             internQuestions();
-            // return manager;
         } else {
-            console.log("SHIT'S DONE")
-            // return manager;  
+            console.log("TEAM COMPLETE")
+            //pass array of data collected from questions to html template function
             const pageHTML = generatePage(teamDataArr);
+            //function to create html file in dist folder
             writeToFile(pageHTML);
+            //function to copy css style sheet to dist folder
             copyStyles();
         }
     })
@@ -105,10 +101,8 @@ const questions = () => {
 
 
 
-
+//array of engineer questions for user input via the inquirer package
 const engineerQuestions = () => {
-
-
     return inquirer.prompt([
         {
             type: 'input',
@@ -170,26 +164,27 @@ const engineerQuestions = () => {
         }
 
     ]).then(engineerData => {
+        //save new instance of engineer data to variable
         let engineer = new Engineer(engineerData);
-
+        //push data to array
         teamDataArr.push(engineer);
-        console.log('////////////////ARRAY UPDATE///////////////')
-        console.log(teamDataArr);
-
+        //conditional to determine if adding engineer, intern or done
         if (engineerData.role === "Engineer") {
             console.log("ENGINEER QUESTIONS")
+            //if 'engineer' is selected, call engineer function with engineer questions
             engineerQuestions();
-            // return engineer;
         } else if (engineerData.role === "Intern") {
             console.log("INTERN QUESTIONS")
+            //if 'intern' is selected, call intern function with intern questions
             internQuestions();
-            // return engineer;
         } else {
-            console.log("SHIT'S DONE")
+            console.log("TEAM COMPLETE")
+            //pass array of data collected from questions to html template function
             const pageHTML = generatePage(teamDataArr);
+            //function to create html file in dist folder
             writeToFile(pageHTML);
+            //function to copy css style sheet to dist folder
             copyStyles();
-
         }
     })
 };
@@ -201,9 +196,8 @@ const engineerQuestions = () => {
 
 
 
-
+//array of intern questions for user input via the inquirer package
 const internQuestions = () => {
-
     return inquirer.prompt([
         {
             type: 'input',
@@ -264,27 +258,27 @@ const internQuestions = () => {
             choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
         }
     ]).then(internData => {
+         //save new instance of manager data to variable
         let intern = new Intern(internData);
-
+        //push data to array
         teamDataArr.push(intern);
-        console.log('////////////////ARRAY UPDATE///////////////')
-        console.log(teamDataArr);
-
+        //conditional to determine if adding engineer, intern or done
         if (internData.role === "Engineer") {
             console.log("ENGINEER QUESTIONS")
+            //if 'engineer' is selected, call engineer function with engineer questions
             engineerQuestions();
-            // return intern;
         } else if (internData.role === "Intern") {
             console.log("INTERN QUESTIONS")
+            //if 'intern' is selected, call intern function with intern questions
             internQuestions();
-            // return intern;
         } else {
-            console.log("SHIT'S DONE")
-            // return intern;
+            console.log("TEAM COMPLETE")
+            //pass array of data collected from questions to html template function
             const pageHTML = generatePage(teamDataArr);
+            //function to create html file in dist folder
             writeToFile(pageHTML);
+            //function to copy css style sheet to dist folder
             copyStyles();
-
         }
     })
 }
@@ -311,10 +305,9 @@ const copyStyles = () => {
             console.log(err);
             return;
         }
-        console.log('Style sheet copied successfully!');
     });
 }
 
 
-
+//function call to initiate questions
 questions()

@@ -27,7 +27,7 @@
 *  Run `npm init` from the command line
 *  Run `npm install inquirer` from the command line
 
-![teamProfileGenerator](./assets/images/team-install)
+![teamProfileGenerator](./assets/images/team-install.png)
 
 Back to [top of page](# )
 

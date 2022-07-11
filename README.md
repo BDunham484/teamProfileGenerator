@@ -66,6 +66,8 @@ Back to [top of page](# )
 
 * Tests can be run by entering `npm run test` in the command line.
 
+![teamProfileGenerator](./assets/images/team-tests.png)
+
 
 
 Back to [top of page](# )

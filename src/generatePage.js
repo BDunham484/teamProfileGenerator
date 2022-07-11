@@ -19,7 +19,7 @@ const generateCards = teamDataArr => {
                                 <p class="fs-5 fw-bolder"><i class="fa-solid fa-mug-hot"></i>  ${role}</p>
                                 
                             </div>
-                            <ul class="list-group list-group-flush">
+                            <ul class="list-group list-group-flush p-4">
                                 <li class="list-group-item fw-semibold">ID: ${id}</li>
                                 <li class="list-group-item fw-semibold">Email: <a href="mailto: ${email}">${email}</a></li>
                                 <li class="list-group-item fw-semibold">Office Number: ${officeNumber}</li>
@@ -39,10 +39,10 @@ const generateCards = teamDataArr => {
                                 <p class="fs-4 fw-bold">${name}</p</br>
                                 <p class="fs-5 fw-bolder"><i class="fa-solid fa-gears"></i>  ${role}</p>
                             </div>
-                            <ul class="list-group list-group-flush">
+                            <ul class="list-group list-group-flush p-4">
                                 <li class="list-group-item fw-semibold">ID: ${id}</li>
                                 <li class="list-group-item fw-semibold">Email: <a href="mailto: ${email}">${email}</a></li>
-                                <li class="list-group-item fw-semibold">GitHub Username: <a href="https://www.github.com/${github}" target="_blank">${github}</a></li>
+                                <li class="list-group-item fw-semibold">GitHub: <a href="https://www.github.com/${github}" target="_blank">${github}</a></li>
                             </ul>
                         </div>
                     </li>
@@ -59,7 +59,7 @@ const generateCards = teamDataArr => {
                             <p class="fs-4 fw-bold">${name}</p</br>
                             <p class="fs-5 fw-bolder"><i class="fa-solid fa-graduation-cap"></i>  ${role}</p>
                             </div>
-                            <ul class="list-group list-group-flush">
+                            <ul class="list-group list-group-flush p-4">
                                 <li class="list-group-item fw-semibold">ID: ${id}</li>
                                 <li class="list-group-item fw-semibold">Email: <a href="mailto: ${email}">${email}</a></li>
                                 <li class="list-group-item fw-semibold">School: ${school}</li>

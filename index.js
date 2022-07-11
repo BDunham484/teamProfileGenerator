@@ -96,6 +96,7 @@ const questions = () => {
             // return manager;  
             const pageHTML = generatePage(teamDataArr);
             writeToFile(pageHTML);
+            copyStyles();
         }
     })
 };
@@ -187,7 +188,7 @@ const engineerQuestions = () => {
             console.log("SHIT'S DONE")
             const pageHTML = generatePage(teamDataArr);
             writeToFile(pageHTML);
-            
+            copyStyles();
 
         }
     })
@@ -282,6 +283,7 @@ const internQuestions = () => {
             // return intern;
             const pageHTML = generatePage(teamDataArr);
             writeToFile(pageHTML);
+            copyStyles();
 
         }
     })
@@ -301,12 +303,18 @@ const writeToFile = (data) => {
 
 
 
+
+//function to copy style sheet
+const copyStyles = () => {
+    fs.copyFile('./src/style.css', './dist/style.css', err => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log('Style sheet copied successfully!');
+    });
+}
+
+
+
 questions()
-    // .then(manager => {
-    //     //create initial html page
-    //     const pageHTML = generatePage(manager);
-    //     writeToFile(pageHTML);
-    //     })
-    //     .catch(err => {
-    //     console.log(err);
-    //     });

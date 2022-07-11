@@ -17,7 +17,7 @@ const generateCards = teamDataArr => {
         return `
                     <li>
                         <div class="card m-4" style="width: 18rem;">
-                            <div class="card-header">
+                            <div class="card-header bg-gradient">
                                 <p class="fs-4 fw-bold">${name}</p</br>
                                 <p class="fs-5 fw-bolder"><i class="fa-solid fa-mug-hot"></i>  ${role}</p>
                                 
@@ -40,7 +40,7 @@ const generateCards = teamDataArr => {
         return `
                     <li>
                         <div class="card m-4" style="width: 18rem;">
-                            <div class="card-header">
+                            <div class="card-header bg-gradient">
                                 <p class="fs-4 fw-bold">${name}</p</br>
                                 <p class="fs-5 fw-bolder"><i class="fa-solid fa-gears"></i>  ${role}</p>
                             </div>
@@ -61,7 +61,7 @@ const generateCards = teamDataArr => {
     return `
                 <li>
                     <div class="card m-4" style="width: 18rem;">
-                        <div class="card-header">
+                        <div class="card-header bg-gradient">
                         <p class="fs-4 fw-bold">${name}</p</br>
                         <p class="fs-5 fw-bolder"><i class="fa-solid fa-graduation-cap"></i>  ${role}</p>
                         </div>
@@ -97,20 +97,21 @@ const generatePage = (data) => {
         <title>Team Profile Generator</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./style.css">
     </head>
     </head>
 
     <body>
         <header>
-            <nav class="navbar bg-dark bg-gradient">
+            <nav class="navbar bg-gradient">
                 <div class="container-fluid justify-content-center">
                     <span class="navbar-brand mb-0 py-5 h1 fs-1 text-light text-center">Team Profile</span>
                 </div>
             </nav>
         </header>
         <main>
-            <div class="container d-flex justify-content-center">
-                <ul class="d-flex flex-row flex-wrap list-unstyled">
+            <div class="container-fluid d-flex justify-content-center">
+                <ul class="d-flex flex-row flex-wrap list-unstyled justify-content-center">
                     ${generateCards(data)}
                 </ul>
             </div>

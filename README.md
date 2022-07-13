@@ -33,7 +33,7 @@ Back to [top of page](# )
 
 ## Usage
 
-* Run `node index` from the command line to initiate a series of questions about your team. Your respponses are then used to populate a series of Bootstrap cards that are dsplayed on a dynamically generated `HTML` page. Upon completion, the file will be saved in the `dist` folder along with a copy of the `CSS` style sheet.
+* Run `node index` from the command line to initiate a series of questions about your team. Your responses are then used to populate a series of Bootstrap cards that are dsplayed on a dynamically generated `HTML` page. Upon completion, the file will be saved in the `dist` folder along with a copy of the `CSS` style sheet.
 
 
 

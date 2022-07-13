@@ -9,7 +9,7 @@
 ![teamProfileGenerator](./assets/images/team-raising.png)
 
 * <a href='https://www.github.com/BDunham484/teamProfileGenerator'>https://www.github.com/BDunham484/teamProfileGenerator</a>
-* <a href='[https://www.github.com/BDunham484/teamProfileGenerator/assets/videos/teamProfileGenerator_walkthrough.webm](https://drive.google.com/file/d/14WdC7JU0snIInr3GMVTdVSMND1QeBSol/view)'>Demonstration Video</a>
+* <a href='https://drive.google.com/file/d/14WdC7JU0snIInr3GMVTdVSMND1QeBSol/view'>Demonstration Video</a>
 
 ## Table of Contents
 

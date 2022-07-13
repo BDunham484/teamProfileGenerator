@@ -9,6 +9,7 @@
 ![teamProfileGenerator](./assets/images/team-raising.png)
 
 * <a href='https://www.github.com/BDunham484/teamProfileGenerator'>https://www.github.com/BDunham484/teamProfileGenerator</a>
+* <a href='https://www.github.com/BDunham484/teamProfileGenerator/assets/vides/teamProfileGenerator_walkthough'>Demonstration Video</a>
 
 ## Table of Contents
 
@@ -28,6 +29,7 @@
 *  Run `npm install inquirer@8.2.4` from the command line
 
 ![teamProfileGenerator](./assets/images/team-install.png)
+
 
 Back to [top of page](# )
 
